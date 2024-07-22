@@ -18,7 +18,6 @@ const app = express();
 
 app.use(helmet());
 app.use(express.json());
-console.log("Frontend URL:", config.frontendUrl);
 
 const corsOptions = {
     origin: config.frontendUrl, 
@@ -57,5 +56,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 const PORT = config.port;
-const FURL = config.frontendUrl;
-app.listen(PORT, () => console.log(`Server started on port ${PORT} ${FURL}`));
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
