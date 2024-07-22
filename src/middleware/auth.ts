@@ -27,7 +27,7 @@ export const protect = asyncHandler(
           sessionId = uuidv4();
           response.cookie("sessionId", sessionId, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "prod",
+            secure: true,
           });
         }
         request.sessionId = sessionId;

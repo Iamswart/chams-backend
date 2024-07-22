@@ -21,5 +21,6 @@ export default {
   gloTestNumber: process.env.GLO_TEST_NUMBER as string,
   ninemobileTestNumber: process.env.NINEMOBILE_TEST_NUMBER as string,
   airtimeEndpoint: process.env.AIRTIME_ENDPOINT as string,
-  dataEndpoint: process.env.DATA_ENDPOINT as string
+  dataEndpoint: process.env.DATA_ENDPOINT as string,
+  nodeEnv: process.env.NODE_ENV
 };
