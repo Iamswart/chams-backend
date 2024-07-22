@@ -7,7 +7,7 @@ The Airtime and Data API provides a comprehensive solution for managing the purc
 ## Features
 
 - RESTful API endpoints for airtime and data purchase
-- JWT-based and session based authentication
+- JWT-based and session (for guest users) based authentication
 
 ## Technologies Used
 
