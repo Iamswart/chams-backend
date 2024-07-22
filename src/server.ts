@@ -18,15 +18,16 @@ const app = express();
 
 app.use(helmet());
 app.use(express.json());
+console.log("Frontend URL:", config.frontendUrl);
 
-// const corsOptions = {
-//     origin: config.frontendUrl,
-//     credentials: true,
-//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
-//     allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
-// };
+const corsOptions = {
+    origin: config.frontendUrl, 
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
+    allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 
@@ -56,4 +57,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 const PORT = config.port;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+const FURL = config.frontendUrl;
+app.listen(PORT, () => console.log(`Server started on port ${PORT} ${FURL}`));
