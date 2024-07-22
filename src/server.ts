@@ -20,7 +20,7 @@ app.use(helmet());
 app.use(express.json());
 
 const corsOptions = {
-    origin: process.env.FRONTEND_URL,
+    origin: config.frontendUrl,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
     allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
