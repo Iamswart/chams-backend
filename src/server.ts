@@ -19,16 +19,15 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 
-const corsOptions = {
-    origin: config.frontendUrl,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
-    allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
-};
+// const corsOptions = {
+//     origin: config.frontendUrl,
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
+//     allowedHeaders: ["Content-Type", "Authorization", "x-api-key"],
+// };
 
-console.log(process.env.FRONTEND_URL)
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.use(cors());
+
 app.use(cookieParser());
 
 dbConnect();
