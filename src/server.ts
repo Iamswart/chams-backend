@@ -19,11 +19,14 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 
-const corsOptions = {
-    origin: config.frontendUrl, 
+const corsOptions: cors.CorsOptions = {
+    origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
+      callback(null, true);
+    },
     credentials: true,
   };
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(cookieParser());
 
 dbConnect();
